@@ -12,17 +12,19 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <ul class="navbar-nav">
      
-                        <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/admin/users" class="dropdown-item">Users</a></li>
-                        <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/admin/books" class="dropdown-item">Books</a></li>
+                        <li><a *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin()" routerLink="/admin/users" class="dropdown-item">Users</a></li>
+                        <li><a *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin()" routerLink="/admin/books" class="dropdown-item">Books</a></li>
                         <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
-                        <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li>
+                        <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="dropdown-item">LogOut</a></li>
                     </ul>
                 </div>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a routerLink="/admin/users">Users</a>
                 </div>
             </li>
+            <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li>
         </ul>
+        
     </nav>
 </header>
 

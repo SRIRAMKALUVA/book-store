@@ -9,7 +9,7 @@ import { AuthenticationService } from '../service/authentication.service';
 })
 export class LoginComponent implements OnInit {
 
-  username = 'sriram'
+  username = ''
   password = ''
   invalidLogin = false
 
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   checkLogin() {
     if (this.loginservice.authenticate(this.username, this.password)
     ) {
-      this.router.navigate([''])
+      this.router.navigate(['/shop'])
       this.invalidLogin = false
     } else
       this.invalidLogin = true
