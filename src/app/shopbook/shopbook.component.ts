@@ -11,10 +11,14 @@ import { Book } from '../model/Book';
 export class ShopbookComponent implements OnInit {
 
   books: Array<Book> = [];
+  req_book!: String;
+  result_book: any;
   booksRecieved: Array<Book> = [];
-
+  Books: Array<Book> = [];
   cartBooks: any;
 
+
+  
   constructor(private router: Router, private httpClientService: HttpClientService) { }
 
 
@@ -32,11 +36,14 @@ export class ShopbookComponent implements OnInit {
     }
   }
 
+
+
   // we will be taking the books response returned from the database
   // and we will be adding the retrieved   
   handleSuccessfulResponse(response: Book[]) {
     this.books = new Array<Book>();
     //get books returned by the api call
+    this.Books = response;
     this.booksRecieved = response;
     for (const book of this.booksRecieved) {
 
@@ -50,6 +57,15 @@ export class ShopbookComponent implements OnInit {
       bookwithRetrievedImageField.picByte = book.picByte;
       this.books.push(bookwithRetrievedImageField);
     }
+  }
+
+  search(req_book: String){
+    this.httpClientService.getBooks().subscribe(
+      response => this.handleSuccessfulResponse(response)
+    );
+    
+    return this.result_book = this.books.find(book => book.name === req_book) ||  this.books.find(book => book.author === req_book)
+    
   }
 
   addToCart(bookId: string | number) {

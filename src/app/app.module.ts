@@ -14,6 +14,10 @@ import { ViewbookComponent } from './admin/books/viewbook/viewbook.component';
 import { ShopbookComponent } from './shopbook/shopbook.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import { LogoutComponent } from './logout/logout.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Book } from '../model/Book';
 import { AuthenticationService } from '../service/authentication.service';
-import { User } from 'src/app/model/User';
+
 
 @Component({
   selector: 'app-menu',

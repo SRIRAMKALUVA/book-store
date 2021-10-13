@@ -2,6 +2,37 @@
     <div class="col-md-2">
         <h1>Books</h1>
     </div>
+
+    <div>
+        Search Book : <input type="text" name="req_book" [(ngModel)]="req_book">
+    </div>
+    <button (click)=search(req_book) class="btn btn-success">
+        Search
+      </button>
+      <div *ngIf="result_book">{{result_book.name}}</div>
+      <div *ngIf="result_book">{{result_book.price}}</div>
+      <!-- <img class="custom-image-style" img src="{{result_book.retrievedImage}}" height="300" width="200" style="margin-left: 60px;
+          margin-top: 10px"> -->
+    
+    <!-- <div class="search-hero">
+        <input class="form-control" type="text" name="search" [(ngModel)]="req_book" autocomplete="off" placeholder="&#61442;  Start searching for a hero by id or name or country">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Id</th>
+              <th>Hero Name</th>
+              <th>Country</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let book of Books | filter:req_book">
+              <td>{{book.id}}</td>
+              <td>{{book.name}}</td>
+              <td>{{book.price}}</td>
+            </tr>
+            </tbody>
+          </table>
+    </div> -->
     <div class="col-md-10 custom-products-cart-container">
         <div class="offset-md-8">
             <ul class="nav navbar-nav navbar-right">
