@@ -1,89 +1,98 @@
-<div class="container row">
-    <div class="col-md-2">
-        <h1>Books</h1>
-    </div>
 
-    <div>
-        Search Book : <input type="text" name="req_book" [(ngModel)]="req_book">
-    </div>
-    <button (click)=search(req_book) class="btn btn-success">
-        Search
-      </button>
-      <div *ngIf="result_book">{{result_book.name}}</div>
-      <div *ngIf="result_book">{{result_book.price}}</div>
-      <!-- <img class="custom-image-style" img src="{{result_book.retrievedImage}}" height="300" width="200" style="margin-left: 60px;
-          margin-top: 10px"> -->
-    
-    <!-- <div class="search-hero">
-        <input class="form-control" type="text" name="search" [(ngModel)]="req_book" autocomplete="off" placeholder="&#61442;  Start searching for a hero by id or name or country">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-              <th>Id</th>
-              <th>Hero Name</th>
-              <th>Country</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let book of Books | filter:req_book">
-              <td>{{book.id}}</td>
-              <td>{{book.name}}</td>
-              <td>{{book.price}}</td>
-            </tr>
-            </tbody>
-          </table>
-    </div> -->
-    <div class="col-md-10 custom-products-cart-container">
-        <div class="offset-md-8">
-            <ul class="nav navbar-nav navbar-right">
+<mat-tab-group mat-align-tabs="center">
 
-                <li class="dropdown">
-                    <br>
-                    <a href="#" class="btn btn-info btn-lg" data-toggle="dropdown" role="button" aria-expanded="false">
-                        <span class="fa fa-shopping-cart">
-                            Books Added In Cart:
-                        </span>
-                        <span class="caret">{{cartBooks.length}}</span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-cart" role="menu">
-                        <li *ngFor="let item of cartBooks">
-                            <div class="item product-cart-item row">
-                                <div class="col-md-8" *ngIf="item">{{item.name}}</div>
-                                <div class="col-md-4" *ngIf="item"><strong>${{item.price}}</strong></div>
-                            </div>
-                        </li>
-                        <hr>
-                        <li><a class="btn btn-small btn-success" role="button" (click)="goToCart()">View Cart</a></li>
-                        <br>
-                        <li *ngIf="cartBooks.length > 0">
-                            <a class="btn btn-small btn-warning" role="button" (click)="emptyCart()">Empty Cart</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
+    <mat-tab label="SHOP BOOKS">
 
-<hr>
-<hr>
-
-
-<div class="container row">
-    <div class="col-md-4" *ngFor="let book of books;let i=index">
-        <div class="card card-block">
-            <img class="custom-image-style" img src="{{book.retrievedImage}}" height="300" width="200" style="margin-left: 60px;
-          margin-top: 10px">
-            <div class="book-desc-container row">
+        <mat-grid-list cols="3" rowHeight="1:1">
+            <mat-grid-tile  *ngFor="let book of books;let i=index">
                 <div>
-                    <p style="margin-left: 60px"><strong>{{book.name}}: ${{book.price}}</strong></p>
-                    <p style="margin-left: 60px">{{book.author}}</p>
-                </div>
-                <div class="offset-md-4 col-md-4">
-                    <button class="btn btn-primary btn-sm" (click)="addToCart(book.id)"
+                    <mat-card-header>
+                        <span class="details"><mat-card-title>NAME: {{book.name}}</mat-card-title></span>
+                        <p> Price: ${{book.price}}</p>
+                      </mat-card-header>
+                    <span class="img">
+                        <img img src="{{book.retrievedImage}}" height="300" width="200" >
+                    </span>
+                    <mat-card-content>
+                        <p><strong>AUTHOR : {{book.author}}</strong></p>
+                    </mat-card-content>
+                    <span class="button">
+                        <button mat-raised-button color="warn" (click)="addToCart(book.id)"
                         [disabled]="book.isAdded===true">Add To Cart</button>
+                    </span>
                 </div>
-            </div>
+            </mat-grid-tile>
 
+           
+          </mat-grid-list>
+    </mat-tab>
+    
+    <mat-tab label="SEARCH BOOKS">
+        <div class="searchArea">
+            <div>
+                <span class="searchText">
+                        Search Book :
+                </span>
+                <span class="searchString">
+                    <input matInput placeholder="Enter a book or author name" name="req_book" [(ngModel)]="req_book" size="40">
+                </span>
+                <span class="searchButton">
+                    <button mat-raised-button color="warn" (click)=search(req_book)>
+                        Search
+                      </button>
+                </span>
+            </div>
+            <mat-grid-list cols="2" rowHeight="1:1">
+            <mat-grid-tile *ngIf="result_book">
+                <div>
+                    <mat-card-header>
+                        <span class="details"><mat-card-title>NAME: {{result_book.name}}</mat-card-title></span>
+                        <p> Price: ${{result_book.price}}</p>
+                        </mat-card-header>
+                    <span class="img">
+                        <img img src="{{result_book.retrievedImage}}" height="300" width="200" >
+                    </span>
+                    <mat-card-content>
+                        <p><strong>AUTHOR : {{result_book.author}}</strong></p>
+                    </mat-card-content>
+                    <span class="button">
+                        <button mat-raised-button color="warn" (click)="addToCart(result_book.id)"
+                        [disabled]="result_book.isAdded===true">Add To Cart</button>
+                    </span>
+                </div>
+            </mat-grid-tile>
+            </mat-grid-list>
         </div>
-    </div>
-</div>
+    </mat-tab>
+    
+    <mat-tab label="CART">
+        <div>
+            <h1 style="font-family: 'Roboto Mono', monospace;">
+                Books Added In Cart: {{cartBooks.length}}
+            </h1>
+            <span>
+
+                <mat-grid-list cols="3" rowHeight="1:1" *ngIf = "cartBooks">
+                    <mat-grid-tile  *ngFor="let item of cartBooks">
+                        <div>
+                            <mat-card-header>
+                                <span class="details"><mat-card-title>NAME: {{item.name}}</mat-card-title></span>
+                                <p> Price: ${{item.price}}</p>
+                              </mat-card-header>
+                            <span class="img">
+                                <img img src="{{item.retrievedImage}}" height="300" width="200" >
+                            </span>
+                            <mat-card-content>
+                                <p><strong>AUTHOR : {{item.author}}</strong></p>
+                            </mat-card-content>
+                        </div>
+                    </mat-grid-tile>
+                </mat-grid-list>
+                <a *ngIf="cartBooks.length > 0" class="btn btn-small btn-warning" role="button" (click)="emptyCart()">Empty Cart</a>
+            </span>
+        </div>
+    </mat-tab>
+
+
+
+</mat-tab-group>

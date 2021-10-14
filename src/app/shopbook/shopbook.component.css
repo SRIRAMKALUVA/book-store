@@ -1,0 +1,66 @@
+.mat-tab-group {
+    margin-bottom: 48px;
+    font-family: 'Roboto Mono', monospace;
+  }
+
+  mat-grid-tile {
+    /* background: lightblue; */
+    font-family: 'Roboto Mono', monospace;
+  }
+
+  .details{
+    font-family: 'Roboto Mono', monospace;
+    font-size: 20px;
+   /* padding-top: 100rem; */
+   margin-top: 1rem;
+   text-transform: uppercase;
+  }
+
+.button{
+    padding-left: 3rem;
+}
+.img{
+    padding-left: 0rem;
+    
+}
+.author{
+    font-family: 'Roboto Mono', monospace;
+    font-size: 20px;
+    text-transform: uppercase;
+    /* padding-bottom: 30rem; */
+  }
+
+
+  .example-card {
+    max-width: 400px;
+    height: 400px;
+  }
+
+
+.searchArea{
+    font-family: 'Roboto Mono', monospace;
+    /* background-color: black; */
+    width: 1000px;
+    height: 600px;
+    /* border: black solid 2px; */
+    padding-top: 2rem;
+    
+}
+
+.searchString{
+    font-family: 'Roboto Mono', monospace;
+    margin: 1rem;
+    /* padding-left: 2rem; */
+    
+}
+.searchText{
+    font-family: 'Roboto Mono', monospace;
+    margin: 1rem;
+    padding-left: 1rem;
+    /* padding-top: 10rem; */
+}
+.searchButton{
+    font-family: 'Roboto Mono', monospace;
+    margin: 1rem;
+    /* padding-left: 2rem; */
+}

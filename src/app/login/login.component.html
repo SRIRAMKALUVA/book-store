@@ -1,9 +1,96 @@
-<div class="container">
-    <div>
-      User Name : <input type="text" name="username" [(ngModel)]="username">
-      Password : <input type="password" name="password" [(ngModel)]="password">
-    </div>
-    <button (click)=checkLogin() class="btn btn-success">
-      Login
-    </button>
+<!-- 
+
+
+<div class="form">
+  <div class="head">
+    <h1>
+      Login to Continue...
+    </h1>
   </div>
+    <div class="uname">
+        USERNAME : <input class="input" type="text" placeholder="Enter the Username" name="username" [(ngModel)]="username">
+    </div>
+    <div class="password">
+      PASSWORD : <input class="input" type="password" placeholder="Enter the Password" name="password" [(ngModel)]="password">
+    </div>
+    <div>
+      <button mat-raised-button color="warn" class="button_log" (click)=checkLogin()>
+        LOGIN
+      </button>
+      <button mat-raised-button color="warn" class="button">
+        SIGNUP
+      </button>
+    </div>
+    
+</div>
+
+<div>
+  <form #recievedUser="ngForm">
+
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" placeholder="user name" [(ngModel)]="user.name" name="name">
+  
+    <label for="type">Type</label>
+    <input type="text" class="form-control" id="type" placeholder="type name" [(ngModel)]="user.type" name="name">
+  
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" placeholder="password" [(ngModel)]="user.password" name="password">
+  
+     <br>
+    <button type="button" class="btn btn-success" (click)="addUser()">Save</button>
+  </form>
+</div> -->
+
+
+
+<mat-tab-group dynamicHeight mat-align-tabs="center">
+  <mat-tab label="LOGIN">
+    <div class="example-small-box mat-elevation-z4">
+      <div class="form">
+        <div class="head">
+          <h1>
+            Login to Continue...
+          </h1>
+        </div>
+          <div class="uname">
+              USERNAME : <input class="input" type="text" placeholder="Enter the Username" name="username" [(ngModel)]="username">
+          </div>
+          <div class="password">
+            PASSWORD : <input class="input" type="password" placeholder="Enter the Password" name="password" [(ngModel)]="password">
+          </div>
+          <div>
+            <button mat-raised-button color="warn" class="button_log" (click)=checkLogin()>
+              LOGIN
+            </button>
+            <!-- <button mat-raised-button color="warn" onclick= Signup class="button">
+              SIGNUP
+            </button> -->
+          </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="SIGNUP" id= "Signup">
+    <div class="example-large-box mat-elevation-z4">
+      <div class="form">
+        <div class="head">
+          <h1>
+            SignUp Here...
+          </h1>
+        </div>
+        <form #recievedUser="ngForm">
+          <div class="uname">
+            USERNAME : <input style="border-radius: 8px;" type="text" id="name" placeholder="Enter the Username" name="name" [(ngModel)]="user.name">
+          </div>
+          <div class="password">
+            PASSWORD : <input style="border-radius: 8px;" type="password" id="password" placeholder="Enter the Password" name="password" [(ngModel)]="user.password">
+          </div>
+           <br>
+          <button mat-raised-button color="warn" type="button" class="button_log" (click)="addUser()">SIGNUP</button>
+          <!-- <div class="uname" [style.visibility]="'hidden'">
+            TYPE : <input  style="margin-top: 2rem;" [disabled]="true" type="text" id="type" value="User" name="type" [(ngModel)]="user.type">
+          </div> -->
+        </form>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

@@ -1,0 +1,97 @@
+.form{
+    align-self: center;
+    align-content: center;
+    /* border: black solid 1px; */
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    z-index: 15;
+    top: 50%;
+    left: 50%;
+    margin: -150px 0 0 -160px;
+    /* background: #c9c9c9; */
+    border-radius: 12px;
+    color: #05386b;
+}
+
+.uname{
+    padding: 0rem 1rem 0rem 1rem;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 20px;
+    color: #05386b;
+}
+
+
+.head{
+    font-family: 'Roboto Mono', monospace;
+    padding: 1rem 0rem 0rem 6rem;
+    color: #05386b;
+}
+.input{
+    font-family: 'Roboto Mono', monospace;
+    font-size: 16px;
+    border-radius: 8px;
+    padding: 3px;
+    text-align: center;
+    border-style: solid;
+    color: #05386b;
+    /* border-color: red; */
+}
+.button{
+    margin: 1rem 1rem 1rem 1rem;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 20px;
+    /* color: #05386b; */
+    
+}
+.button_log{
+    margin: 1rem 1rem 1rem 5rem;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 20px;
+    /* color: #05386b; */
+    
+}
+
+.password{
+    padding: 2rem 1rem 1rem 1rem;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 20px;
+    color: #05386b;
+}
+
+.mat-tab-group{
+    background: white;
+    height: 100%;
+    color: #05386b;
+    
+}
+.mat-tab
+{
+    background: white;
+    color: #05386b;
+    border-bottom: black solid 1px;
+}
+.example-small-box, .example-large-box {
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 10px;
+    margin-left: 500px;
+    color: #05386b;
+    /* box-shadow: aliceblue; */
+    /* background: #bab7b6; */
+  }
+  
+  .example-small-box {
+    height: 400px;
+    width: 400px;
+    background: white;
+  }
+  
+  .example-large-box {
+    height: 400px;
+    width: 400px;
+    background: white;
+  }

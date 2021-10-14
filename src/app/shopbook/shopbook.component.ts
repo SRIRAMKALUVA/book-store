@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClientService } from '../service/http-client.service';
 import { Book } from '../model/Book';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-shopbook',
@@ -16,10 +17,14 @@ export class ShopbookComponent implements OnInit {
   booksRecieved: Array<Book> = [];
   Books: Array<Book> = [];
   cartBooks: any;
+  success = "Book has been added to the cart"
+  action = "Dismiss"
+  horizontalPosition: MatSnackBarHorizontalPosition = "center";
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
 
   
-  constructor(private router: Router, private httpClientService: HttpClientService) { }
+  constructor(private router: Router, private httpClientService: HttpClientService, private _snackBar: MatSnackBar) { }
 
 
   ngOnInit() {
@@ -89,6 +94,10 @@ export class ShopbookComponent implements OnInit {
     localStorage.setItem('cart', JSON.stringify(cartData));
     //make the isAdded field of the book added to cart as true
     book.isAdded = true;
+    this._snackBar.open(this.success, this.action, {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition, duration: 5 * 1000
+    });
   }
 
   updateCartData(cartData: any) {
@@ -98,6 +107,7 @@ export class ShopbookComponent implements OnInit {
   goToCart() {
     this.router.navigate(['/cart']);
   }
+  
 
   emptyCart() {
     this.cartBooks = [];

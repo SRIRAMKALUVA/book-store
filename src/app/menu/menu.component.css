@@ -1,0 +1,25 @@
+a{
+    color: #05386b;
+    text-decoration: none;
+    font-family: 'Roboto Mono', monospace;
+}
+
+
+.navbar{
+    justify-content: space-between;
+    height: auto;
+    color: #05386b;
+    font-family: 'Roboto Mono', monospace;
+}
+span{
+    padding-right: 1rem;
+    font-family: 'Roboto Mono', monospace;
+    color: #05386b;
+}
+
+.mat-toolbar {
+    background: #5cdb95;
+    /* border-bottom: #05386b solid 1px; */
+    /* color: crimson; */
+    color: #05386b;
+  }
